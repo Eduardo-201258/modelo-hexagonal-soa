@@ -16,11 +16,14 @@ app.post("/products", (req: Request, res: Response) => {
   res.json(newProduct);
 });
 
-app.get("/products/:id", (req: Request, res: Response) => {
-  const id = req.params.id;
-  const product = getProduct.execute(Number(id));
-  res.json(product);
-  console.log(product)
+app.get("/products/view", async (req: Request, res: Response) => {
+  try {
+    const products = await getProduct.execute();
+    res.json(products);
+    console.log(products);
+  } catch (error) {
+    res.status(400).json({ error: "Error al obtener los productos" });
+  }
 });
 
 const port = 3000;

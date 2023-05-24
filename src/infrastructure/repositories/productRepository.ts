@@ -9,19 +9,14 @@ export class ProductRepository {
         await pool.query(query, [id, name, price]);
     }
 
-    async findById(id: number): Promise<Product | null> {
-        const query = "SELECT * FROM products WHERE id = $1";
-        const result = await pool.query(query, [id]);
-        const productRow = result.rows[0];
-        if (productRow) {
-          const product: Product = {
-            id: productRow.id,
-            name: productRow.name,
-            price: productRow.price,
-          };
-          return product;
-        } else {
-          return null;
-        }
-     }
+    async findAll(): Promise<Product[]> {
+      const query = "SELECT * FROM products";
+      const result = await pool.query(query);
+      const products: Product[] = result.rows.map((row) => ({
+        id: row.id,
+        name: row.name,
+        price: row.price,
+      }));
+      return products;
+    }
 }
