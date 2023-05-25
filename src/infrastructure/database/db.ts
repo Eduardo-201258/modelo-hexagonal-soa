@@ -1,10 +1,11 @@
+import '../../load-env-vars'; 
 import { Pool } from "pg";
 
 export const pool = new Pool({
-  user: "postgres",
-  password: "eduardo",
-  host: "localhost",
-  database: "hexagonal",
-  port: 5432,
+  user: process.env.USER,
+  password: process.env.PASSWORD,
+  host:  process.env.HOST,
+  database: process.env.DATABASE,
+  port: (process.env.PORT,10),
 });
 
