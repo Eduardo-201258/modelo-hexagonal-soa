@@ -4,9 +4,10 @@ import { pool } from "../database/db";
 
 export class ProductRepository_impl implements ProductRepository {
   async save(product: Product): Promise<void> {
-    const { id, name, price } = product;
-    const query = "INSERT INTO products (id, name, price) VALUES ($1, $2, $3)";
-    await pool.query(query, [id, name, price]);
+    const {name, price } = product;
+    console.log(product)
+    const query = "INSERT INTO products (name, price) VALUES ($1, $2)";
+    await pool.query(query, [name, price]);
   }
 
   async findAll(): Promise<Product[]> {

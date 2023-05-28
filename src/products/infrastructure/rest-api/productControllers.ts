@@ -13,6 +13,7 @@ export class ProductControllers {
 
   async crearProduct(request: Request, response: Response) {
     const product = request.body;
+    console.log(product)
 
     try {
       const products = await this.createProduct.execute(product);
