@@ -2,10 +2,11 @@ import { Pool } from "pg";
 
 export const pool = new Pool({
   user: "postgres",
-  password: "alejandra",
+  password: "eduardo",
   host: "localhost",
   database: "productos",
   port: 5432,
+  max: 15
 });
 
 async function checkDatabaseConnection() {
@@ -17,4 +18,5 @@ async function checkDatabaseConnection() {
     console.error("Error al conectar a la base de datos:", error);
   }
 }
+
 checkDatabaseConnection();

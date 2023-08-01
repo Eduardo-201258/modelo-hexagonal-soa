@@ -9,5 +9,5 @@ app.use(express.json());
 app.use("/", productsRouter);
 
 app.listen(3000, () => {
-  console.log(`[Application] Server online in port 3000`);
+  console.log(`Server online in port 3000`);
 });

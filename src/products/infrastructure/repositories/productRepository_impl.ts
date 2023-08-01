@@ -1,6 +1,6 @@
 import { Product } from "../../domain/product";
 import { ProductRepository } from "../../domain/productRepository";
-import { pool } from "../database/db";
+import { pool } from "../../database/db";
 
 export class ProductRepository_impl implements ProductRepository {
   async save(product: Product): Promise<void> {
