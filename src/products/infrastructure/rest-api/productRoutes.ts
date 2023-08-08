@@ -9,14 +9,12 @@ productsRouter.post(
   productController.crearProduct.bind(productController)
 );
 
-// productsRouter.post(
-//   "/nuevo/",
-//   productControllers..bind(productControllers)
-// );`
-
 productsRouter.get(
   "/products",
   productController.obtenerProduct.bind(productController)
 );
 
-// export { productsRouter };
+productsRouter.get(
+  "/:productId",
+  productController.obtenerProductId.bind(productController)
+);
